@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JUHHUUUU!</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      background: linear-gradient(135deg, #ffeb3b, #ff9800);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      color: #d32f2f;
+      text-align: center;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 4em;
+      margin-bottom: 30px;
+      text-shadow: 2px 2px 5px #ff1744;
+    }
+
+    #celebration-image {
+      width: 400px;
+      height: 400px;
+      background-color: #ffe4e1;
+      border: 3px dashed #ff1493;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ff1493;
+      font-weight: bold;
+      font-size: 1.5em;
+      position: relative;
+    }
+
+    .confetti {
+      position: absolute;
+      font-size: 1.5em;
+      animation: floatConfetti 3s linear infinite;
+    }
+
+    @keyframes floatConfetti {
+      0% {transform: translateY(0) rotate(0deg);}
+      100% {transform: translateY(-600px) rotate(360deg);}
+    }
+  </style>
+</head>
+<body>
+  <h1>JUHHUUUU!</h1>
+<div id="image-placeholder">
+  <img src="images/orul.png" alt="Valentine" style="width: 100%; height: 100%; object-fit: cover; border-radius: 20px;">
+</div>
+
+  <script>
+    const confettiEmojis = ["🎉","✨","🎊","💖","❤️"];
+    const body = document.body;
+
+    for(let i=0; i<30; i++){
+      const confetti = document.createElement('div');
+      confetti.className = 'confetti';
+      confetti.style.left = Math.random() * window.innerWidth + 'px';
+      confetti.style.top = Math.random() * window.innerHeight + 'px';
+      confetti.style.fontSize = (10 + Math.random()*20) + 'px';
+      confetti.innerText = confettiEmojis[Math.floor(Math.random()*confettiEmojis.length)];
+      confetti.style.animationDuration = (2 + Math.random()*3) + 's';
+      body.appendChild(confetti);
+    }
+  </script>
+</body>
+</html>
